@@ -20,9 +20,9 @@ services:
         networks:
             - app-network
     db:
+        build: .docker/mysql
         container_name: db
         platform: linux/amd64
-        image: mysql:8.1.0
         command: --innodb-use-native-aio=0
         restart: always
         tty: true
