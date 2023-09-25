@@ -19,3 +19,4 @@
 /laravel/.vscode
 /laravel/.docker/dbdata
 .idea
+*.iml
