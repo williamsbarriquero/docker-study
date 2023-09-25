@@ -23,6 +23,17 @@ services:
         container_name: nginx
         restart: always
         tty: true
+        environment:
+            - NAME_APP=app
+            - PORT_APP=9000
+        command: >
+            /bin/sh -c
+            "envsubst '
+            $${NAME_APP} and $${PORT_APP}
+            '< /etc/nginx/conf.d/nginx.conf.template
+            > /etc/nginx/conf.d/nginx.conf
+            && nginx -g 'daemon off;'"
+
         ports:
             - "8000:80"
         volumes:
